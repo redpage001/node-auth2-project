@@ -15,9 +15,10 @@ function add(user) {
         })
 }
 
-function find() {
+function find(department) {
     return db('users')
-        .select('username', 'password')
+        .select('username', 'password', 'department')
+        .where({ department: department })
 }
 
 function findBy(filter) {

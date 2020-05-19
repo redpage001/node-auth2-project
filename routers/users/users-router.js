@@ -11,7 +11,7 @@ const { isValid } = require('../auth/users-service');
 router.use(restricted);
 
 router.get('/', (req, res) => {
-    Users.find()
+    Users.find(req.jwt.department)
          .then(users => {
              res.status(200).json({ users, jwt: req.jwt })
          })
